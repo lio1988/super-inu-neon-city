@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Local Super Inu 3D neon city with genuine GLB materials, 360-degree inspection and capability-checked embedded movement, heroic flight and palm effects.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self' blob:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Super Inu — Neon District</title>
+  <link rel="icon" href="assets/si-shield.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script>
+</head>
+<body>
+  <main id="world" aria-label="Interactive Super Inu neon city">
+    <canvas id="scene" aria-label="3D Super Inu city. Loading the SI model. Drag to orbit the city." tabindex="0"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="brand"><img class="shield-mark" src="assets/si-shield.svg" alt="SI"><span>SUPER INU<small>NEON DISTRICT</small></span></div>
+      <div class="top-controls"><span class="local-tag">LOCAL CONCEPT / 01</span><button id="quality" aria-label="Toggle graphics quality">HIGH QUALITY</button><button id="pause" aria-pressed="false">PAUSE</button></div>
+    </header>
+    <section class="title-block" aria-label="World title"><span class="eyebrow">AFTER DARK. ABOVE ORDINARY.</span><h1>NEON<br><span>DISTRICT</span></h1><p id="model-note">Loading the SI model and lighting the city…</p><div class="live"><i></i><span id="activity" aria-live="polite">ARRIVING IN THE CITY</span></div></section>
+    <nav class="actions" aria-label="Character actions"><button id="run" class="primary" aria-pressed="false" disabled>MOVE SI <span>↗</span></button><button id="fly" aria-pressed="false" disabled>HOVER <kbd>F</kbd></button><button id="laser" disabled>PALM LASERS <kbd>SPACE</kbd></button><button id="spin" aria-pressed="false" disabled>360° VIEW</button><button id="camera">RESET CAMERA <kbd>R</kbd></button></nav>
+    <footer><span id="character-tech" class="tech">3D CITY · LOADING SI</span><span id="movement-help" class="key-help">DRAG TO ORBIT THE CITY</span><span id="fps" class="fps">LOADING</span></footer>
+    <div id="joystick" class="joystick" role="group" aria-label="Touch movement joystick"><span id="stick"></span></div>
+    <div id="loading" class="loading" role="status"><img class="shield-mark" src="assets/si-shield.svg" alt="SI"><strong>LIGHTING THE DISTRICT</strong><span>Building your local world…</span></div>
+    <div id="failure" class="failure" role="alert" hidden></div>
+  </main>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {createState,advance,requestLaser,poseFor,atlasCell,randomSeed,BOUNDS}from'./dist/state.mjs';
+test('diagonal speed is normalized',()=>{let a=createState(),b=createState();advance(a,.05,{z:1});advance(b,.05,{x:1,z:1});assert.ok(Math.abs(Math.hypot(b.x,b.z)-a.z)<1e-10);});
+test('all bounds retained after prolonged input',()=>{let s=createState();for(let i=0;i<10000;i++)advance(s,.05,{x:1,z:-1,sprint:true});assert.equal(s.x,BOUNDS.maxX);assert.equal(s.z,BOUNDS.minZ);});
+test('pause freezes motion, clocks, flight and shots',()=>{let s=createState();s.paused=true;s.flight=true;let before=structuredClone(s);advance(s,1,{x:1});assert.deepEqual(s,before);assert.equal(requestLaser(s),false);});
+test('flight eases up and lands rather than teleporting',()=>{let s=createState();s.flight=true;advance(s,.05);assert.ok(s.height>0&&s.height<4.5);for(let i=0;i<100;i++)advance(s,.05);assert.ok(s.height>4.49);s.flight=false;for(let i=0;i<100;i++)advance(s,.05);assert.equal(s.height,0);});
+test('laser is bounded against repeated key events',()=>{let s=createState();assert.equal(requestLaser(s),true);assert.equal(requestLaser(s),false);for(let i=0;i<20;i++)advance(s,.05);assert.equal(requestLaser(s),true);assert.equal(s.shots,2);});
+test('poses select rear correctly and never mirror SI',()=>{let s=createState();assert.equal(poseFor(s,10),'front');assert.equal(poseFor(s,-10),'rear');s.moving=true;assert.equal(poseFor(s,10),'run');s.flight=true;assert.equal(poseFor(s,10),'fly');assert.deepEqual(atlasCell('rear'),[1,1]);});
+test('tab suspension and malformed deltas cannot jump',()=>{let s=createState();advance(s,100,{z:1});assert.equal(s.z,.125);advance(s,NaN,{z:Infinity});assert.ok(Number.isFinite(s.z));});
+test('city is deterministically reproducible',()=>{let a=randomSeed(),b=randomSeed();for(let i=0;i<100;i++)assert.equal(a(),b());});

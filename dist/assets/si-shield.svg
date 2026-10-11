@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 440 345" role="img" aria-labelledby="title">
+  <title id="title">Super Inu SI shield</title>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2=".8" y2="1">
+      <stop offset="0" stop-color="#fff1a6"/>
+      <stop offset=".35" stop-color="#e6b948"/>
+      <stop offset=".7" stop-color="#b47720"/>
+      <stop offset="1" stop-color="#ffd777"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2=".65" y2="1">
+      <stop offset="0" stop-color="#e72239"/>
+      <stop offset=".5" stop-color="#aa061e"/>
+      <stop offset="1" stop-color="#690616"/>
+    </linearGradient>
+    <linearGradient id="letter" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff1b4"/>
+      <stop offset=".5" stop-color="#ffe17e"/>
+      <stop offset="1" stop-color="#c38b27"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 0H360L420 40L210 320L0 40Z" fill="url(#gold)" stroke="#502c13" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M71 10H349L404 47L210 306L16 47Z" fill="url(#red)" stroke="#f3cc68" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M60 1H360L414 40" fill="none" stroke="#fff3bc" stroke-width="3" stroke-linejoin="round" opacity=".8"/>
+  <g fill="url(#letter)" stroke="#744315" stroke-width=".012" stroke-linejoin="round">
+    <path transform="translate(97 190) scale(154 -150)" d="M.96 .94L.91 .68H.75C.71 .84 .36 .9 .25 .74C.17 .62 .3 .55 .49 .5L.66 .46C.95 .39 1.03 .19 .84 .04C.65 -.11 .3 -.08 .11 .02L.04 .3H.22C.26 .12 .59 .1 .7 .22C.77 .31 .63 .36 .44 .41C.09 .49 .01 .65 .14 .85C.29 1.07 .66 1.08 .81 .94L.84 1H.96Z"/>
+    <path transform="matrix(76 0 6 -129 241 166)" d="M0 0H1V.15H.69V.85H1V1H0V.85H.31V.15H0Z"/>
+  </g>
+</svg>
